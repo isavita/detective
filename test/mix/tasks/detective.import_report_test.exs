@@ -11,26 +11,25 @@ defmodule Mix.Tasks.Detective.ImportStreetReportTest do
     {:ok, path: path}
   end
 
-  test "creates a street report in the database for each valid row from the file", %{path: path} do
+  test "Creates a street report in the database for each valid row from the file", %{path: path} do
     ImportStreetReport.run(path)
 
     assert length(Reports.list_street_reports()) == 2
   end
 
-  test "errors when the file does not exist" do
+  test "Errors when the file does not exist" do
     assert_raise File.Error, ~r/unknown-file.csv/, fn ->
       ImportStreetReport.run('unknown-file.csv')
     end
   end
 
-  @tag capture_log: false
-  test "logs every invalid row from the file", %{path: path} do
+  test "Logs every invalid row from the file", %{path: path} do
     assert capture_log(fn ->
              ImportStreetReport.run(path)
            end) =~ "Row has length 11 - expected length 12 on line 3"
   end
 
-  test "logs every error on creation of report record", %{path: path} do
+  test "Logs every error on creation of report record", %{path: path} do
     assert capture_log(fn ->
              ImportStreetReport.run(path)
            end) =~ "crime_id: can't be blank"

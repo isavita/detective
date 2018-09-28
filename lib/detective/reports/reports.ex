@@ -22,6 +22,21 @@ defmodule Detective.Reports do
   end
 
   @doc """
+  Returns map of entries list of street_reports and page pagination data.
+
+  ## Examples
+
+      iex> paginated_list_street_reports(page_params)
+      %{entries: [%StreetReport{}, ...], page_number: ..., page_size: ..., total_entries: ..., total_pages: ...}
+
+  """
+  def paginated_list_street_reports(page_params) do
+    StreetReport
+    |> order_by(desc: :id)
+    |> Repo.paginate(page_params)
+  end
+
+  @doc """
   Gets a single street_report.
 
   Raises `Ecto.NoResultsError` if the Street report does not exist.

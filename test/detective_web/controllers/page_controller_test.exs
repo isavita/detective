@@ -2,7 +2,8 @@ defmodule DetectiveWeb.PageControllerTest do
   use DetectiveWeb.ConnCase
 
   test "GET /", %{conn: conn} do
-    conn = get conn, "/"
-    assert html_response(conn, 200) =~ "Welcome to Phoenix!"
+    response = conn |> get("/") |> html_response(200)
+
+    assert response =~ "Welcome to Scotland Yard Reports!"
   end
 end

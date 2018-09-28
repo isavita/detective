@@ -8,7 +8,7 @@ defmodule Detective.ReportsTest do
 
     @valid_attrs %{context: "some context", crime_id: "some crime_id", crime_type: "some crime_type", falls_within: "some falls_within", last_outcome_category: "some last_outcome_category", latitude: 120.5, location: "some location", longitude: 120.5, lsoa_code: "some lsoa_code", lsoa_name: "some lsoa_name", month: "some month", reported_by: "some reported_by"}
     @update_attrs %{context: "some updated context", crime_id: "some updated crime_id", crime_type: "some updated crime_type", falls_within: "some updated falls_within", last_outcome_category: "some updated last_outcome_category", latitude: 456.7, location: "some updated location", longitude: 456.7, lsoa_code: "some updated lsoa_code", lsoa_name: "some updated lsoa_name", month: "some updated month", reported_by: "some updated reported_by"}
-    @invalid_attrs %{context: nil, crime_id: nil, crime_type: nil, falls_within: nil, last_outcome_category: nil, latitude: nil, location: nil, longitude: nil, lsoa_code: nil, lsoa_name: nil, month: nil, reported_by: nil}
+    @invalid_attrs %{crime_id: nil, month: nil, crime_type: nil, reported_by: nil}
 
     def street_report_fixture(attrs \\ %{}) do
       {:ok, street_report} =
