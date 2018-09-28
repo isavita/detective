@@ -24,6 +24,6 @@ defmodule Detective.Reports.StreetReport do
   def changeset(street_report, attrs) do
     street_report
     |> cast(attrs, [:crime_id, :month, :reported_by, :falls_within, :longitude, :latitude, :location, :lsoa_code, :lsoa_name, :crime_type, :last_outcome_category, :context])
-    |> validate_required([:crime_id, :month, :reported_by, :falls_within, :longitude, :latitude, :location, :lsoa_code, :lsoa_name, :crime_type, :last_outcome_category, :context])
+    |> validate_required([:crime_id, :month, :crime_type])
   end
 end

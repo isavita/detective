@@ -1,4 +1,4 @@
-Crime ID,Month,Reported by,Falls within,Longitude,Latitude,Location,LSOA code,LSOA name,Crime type,Last outcome category,Context
+crime_id,month,reported_by,falls_within,longitude,latitude,location,lsoa_code,lsoa_name,crime_type,last_outcome_category,context
 a26c86071edf7f9aea6a7f4e677c4aa8542506f917dff6a6f577ab86891e232c,2018-05,Essex Police,Essex Police,0.674022,52.086753,On or near Stour Close,E01029885,Babergh 002C,Other theft,Investigation complete; no suspect identified,
 ,2018-05,Essex Police,Essex Police,0.925268,51.976305,On or near Wick Road,E01029906,Babergh 009D,Anti-social behaviour,,
 5c5b9292bac865de3d23da47ac0ddb4ca25a3d4f54c50112788a8dd98795fc87,2018-05,Essex Police,Essex Police,1.011544,51.970945,On or near The Street,E01029882,Babergh 010C,Violence and sexual offences,Under investigation,

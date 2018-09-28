@@ -1,4 +1,4 @@
-Crime ID,Month,Reported by,Falls within,Longitude,Latitude,Location,LSOA code,LSOA name,Crime type,Last outcome category,Context
+crime_id,month,reported_by,falls_within,longitude,latitude,location,lsoa_code,lsoa_name,crime_type,last_outcome_category,context
 a71e5161c3b5306fdf66b31d0f2b76b67f337205d4bd32be610ce7abe3a02d4b,2018-06,Essex Police,Essex Police,0.137266,51.554109,On or near Simmons Drive,E01000082,Barking and Dagenham 007E,Violence and sexual offences,Under investigation,
 43e2284fa56edced4a88f4399fe86deeeb5cabc2c7db7be6f0fec48ea4cdb868,2018-06,Essex Police,Essex Police,0.161622,51.539616,On or near Parking Area,E01000106,Barking and Dagenham 014D,Violence and sexual offences,Under investigation,
 6e0f410d85d6e8ba55b42e816b691a1f98670a084dcf1a3ef99100a06682d7d5,2018-06,Essex Police,Essex Police,0.440887,51.639995,On or near Martingale Road,E01021237,Basildon 001A,Violence and sexual offences,Unable to prosecute suspect,
