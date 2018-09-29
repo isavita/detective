@@ -1,4 +1,4 @@
 defmodule DetectiveWeb.StreetReportView do
   use DetectiveWeb, :view
-  import Scrivener.HTML
+  use Rummage.Phoenix.View
 end

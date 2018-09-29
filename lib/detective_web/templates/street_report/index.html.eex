@@ -11,7 +11,7 @@
         </tr>
       </thead>
       <tbody>
-        <%= for report <- @street_reports.entries do %>
+        <%= for report <- @street_reports do %>
           <tr>
             <td>
               <%= link "#{report.id}", to: street_report_path(@conn, :show, report) %>
@@ -24,7 +24,7 @@
         <% end %>
       </tbody>
       <tfoot>
-        <%= pagination_links @street_reports %>
+        <%= pagination_link(@conn, @rummage) %>
       </tfoot>
     </table>
   </div>
