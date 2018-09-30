@@ -32,7 +32,7 @@
       <tfoot>
         <%= if is_nil(@sort) do %>
           <%= pagination_links(@page, filters: @filters) %>
-        <%= else %>
+        <% else %>
           <%= pagination_links(@page, sort: @sort, filters: @filters) %>
         <% end %>
       </tfoot>

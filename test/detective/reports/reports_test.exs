@@ -28,7 +28,7 @@ defmodule Detective.ReportsTest do
       {:ok, street_report: street_report_fixture()}
     end
 
-    test "Returns StreetReport module", %{street_report: street_report} do
+    test "Returns StreetReport module" do
       assert Detective.Reports.StreetReport = Reports.filtered_and_sort_query_street_reports(%{})
     end
 
@@ -41,7 +41,7 @@ defmodule Detective.ReportsTest do
       assert Detective.Repo.all(result_ids_query) == [another_street_report.id, street_report.id]
     end
 
-    test "Filters results with filters", %{street_report: street_report} do
+    test "Filters results with filters" do
       another_street_report = street_report_fixture(%{crime_id: "identifier007"})
       query = Reports.filtered_and_sort_query_street_reports(
         %{filters: %{"crime_id" => another_street_report.crime_id}}

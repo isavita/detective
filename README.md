@@ -9,12 +9,10 @@ To start your Phoenix server:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+## Mix task for importing police's reports
 
-## Learn more
+  * Run `mix detective.import_street_report priv/police-data/2018-01-essex-street.csv` (files are from 2018-01 to 2018-07)
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+## Mix test for running all tests
+  
+  * Run `mix test`
