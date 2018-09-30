@@ -1,5 +1,6 @@
 defmodule Detective.Repo do
   use Ecto.Repo, otp_app: :detective
+  use Scrivener, page_size: 15
 
   @doc """
   Dynamically loads the repository url from the

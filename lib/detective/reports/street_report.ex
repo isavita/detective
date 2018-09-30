@@ -1,6 +1,5 @@
 defmodule Detective.Reports.StreetReport do
   use Ecto.Schema
-  use Rummage.Phoenix
   import Ecto.Changeset
 
   schema "street_reports" do

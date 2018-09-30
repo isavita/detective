@@ -2,7 +2,6 @@ defmodule DetectiveWeb.StreetReportController do
   use DetectiveWeb, :controller
   import DetectiveWeb.Plugs.Filters
   alias Detective.Reports
-  alias Detective.Repo
 
   plug(:allowed_filters, ~w(crime_type) when action in [:index])
 
@@ -11,5 +10,11 @@ defmodule DetectiveWeb.StreetReportController do
     page = Detective.Repo.paginate(query, params)
 
     render(conn, "index.html", street_reports: page.entries, page: page, sort: params["sort"])
+  end
+
+  def show(conn, %{"id" => id}) do
+    street_report = Reports.get_street_report!(id)
+
+    render(conn, "show.html", street_report: street_report)
   end
 end
