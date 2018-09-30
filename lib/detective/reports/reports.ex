@@ -30,10 +30,10 @@ defmodule Detective.Reports do
       %{entries: [%StreetReport{}, ...], page_number: ..., page_size: ..., total_entries: ..., total_pages: ...}
 
   """
-  def paginated_list_street_reports(page_params) do
+  def filtered_and_sort_query_street_reports(params) do
     StreetReport
-    |> order_by(desc: :id)
-    |> Repo.paginate(page_params)
+    |> query_sort_by(params[:sort])
+    |> query_filter_by(params[:filters])
   end
 
   @doc """
@@ -115,5 +115,24 @@ defmodule Detective.Reports do
   """
   def change_street_report(%StreetReport{} = street_report) do
     StreetReport.changeset(street_report, %{})
+  end
+
+  defp query_sort_by(query, sort) when is_nil(sort), do: query
+  defp query_sort_by(query, sort) when is_binary(sort) do
+    query |> order_by(desc: ^String.to_atom(sort))
+  end
+
+  defp query_filter_by(query, filters) when is_nil(filters), do: query
+  defp query_filter_by(query, filters) do
+    Enum.reduce(filters, query, fn({filter, value}, query) ->
+      case String.downcase(filter) do
+        "crime_type" ->
+          from p in query,
+          where: ilike(p.crime_type, ^("%#{value}%"))
+        _ ->
+          from p in query,
+          where: field(p, ^String.to_atom(filter)) == ^value
+      end
+    end)
   end
 end
