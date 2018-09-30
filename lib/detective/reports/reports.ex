@@ -22,12 +22,17 @@ defmodule Detective.Reports do
   end
 
   @doc """
-  Returns map of entries list of street_reports and page pagination data.
+  Returns query that compose sort and filter queries.
+
+  Returns StreetReport module if the params are empty Map.
 
   ## Examples
 
-      iex> paginated_list_street_reports(page_params)
-      %{entries: [%StreetReport{}, ...], page_number: ..., page_size: ..., total_entries: ..., total_pages: ...}
+      iex> filtered_and_sort_query_street_reports(%{})
+      StreetReport
+
+      iex> filtered_and_sort_query_street_reports(%{sort: "id"})
+      %Ecto.Query{}
 
   """
   def filtered_and_sort_query_street_reports(params) do
@@ -68,40 +73,6 @@ defmodule Detective.Reports do
     %StreetReport{}
     |> StreetReport.changeset(attrs)
     |> Repo.insert()
-  end
-
-  @doc """
-  Updates a street_report.
-
-  ## Examples
-
-      iex> update_street_report(street_report, %{field: new_value})
-      {:ok, %StreetReport{}}
-
-      iex> update_street_report(street_report, %{field: bad_value})
-      {:error, %Ecto.Changeset{}}
-
-  """
-  def update_street_report(%StreetReport{} = street_report, attrs) do
-    street_report
-    |> StreetReport.changeset(attrs)
-    |> Repo.update()
-  end
-
-  @doc """
-  Deletes a StreetReport.
-
-  ## Examples
-
-      iex> delete_street_report(street_report)
-      {:ok, %StreetReport{}}
-
-      iex> delete_street_report(street_report)
-      {:error, %Ecto.Changeset{}}
-
-  """
-  def delete_street_report(%StreetReport{} = street_report) do
-    Repo.delete(street_report)
   end
 
   @doc """
