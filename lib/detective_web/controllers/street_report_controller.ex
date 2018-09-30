@@ -1,13 +1,15 @@
 defmodule DetectiveWeb.StreetReportController do
   use DetectiveWeb, :controller
-  use Rummage.Phoenix.Controller
+  import DetectiveWeb.Plugs.Filters
   alias Detective.Reports
   alias Detective.Repo
 
-  def index(conn, params) do
-    {query, rummage} = Reports.StreetReport |> Rummage.Ecto.rummage(params["rummage"])
-    street_reports = Repo.all(query)
+  plug(:allowed_filters, ~w(crime_type) when action in [:index])
 
-    render(conn, "index.html", street_reports: street_reports, rummage: rummage)
+  def index(conn, params) do
+    query = Reports.filtered_and_sort_query_street_reports(%{filters: conn.assigns.filters, sort: params["sort"] })
+    page = Detective.Repo.paginate(query, params)
+
+    render(conn, "index.html", street_reports: page.entries, page: page, sort: params["sort"])
   end
 end

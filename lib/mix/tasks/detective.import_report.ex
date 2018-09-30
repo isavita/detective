@@ -11,7 +11,7 @@ defmodule Mix.Tasks.Detective.ImportStreetReport do
     run_app_start_task
 
     path
-    |> Path.expand(__DIR__)
+    |> Path.expand(File.cwd!)
     |> File.stream!([:read])
     |> CSV.decode(headers: true)
     |> Enum.map(&import_record/1)
